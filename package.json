@@ -30,7 +30,7 @@
     "@prisma/sdk": "^3.15.2",
     "@reduxjs/toolkit": "^1.8.2",
     "argon2": "^0.28.5",
-    "aws-sdk": "^2.1156.0",
+    "aws-sdk": "^2.1691.0",
     "colorette": "^2.0.19",
     "cookie": "^0.5.0",
     "fecha": "^4.2.3",
