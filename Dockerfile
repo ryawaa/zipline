@@ -1,6 +1,6 @@
 FROM ghcr.io/diced/prisma-binaries:3.15.x as prisma
 
-FROM alpine:3.16 AS deps
+FROM alpine:3.21.0 AS deps
 RUN mkdir -p /prisma-engines
 WORKDIR /build
 
@@ -10,7 +10,7 @@ COPY package.json yarn.lock .yarnrc.yml ./
 RUN apk add --no-cache nodejs yarn
 RUN yarn install --immutable
 
-FROM alpine:3.16 AS builder
+FROM alpine:3.21.0 AS builder
 WORKDIR /build
 
 COPY --from=prisma /prisma-engines /prisma-engines
@@ -35,7 +35,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN yarn build
 
-FROM alpine:3.16 AS runner
+FROM alpine:3.21.0 AS runner
 WORKDIR /zipline
 
 COPY --from=prisma /prisma-engines /prisma-engines
